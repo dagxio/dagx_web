@@ -1,13 +1,393 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>DAGX-IOS</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <meta name="format-detection" content="telephone=no"/>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport"
+          content="user-scalable=no,width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <meta name="HandheldFriendly" content="true">
+    <!--<link rel="shortcut icon" href="/favicon.ico">-->
+    <!--添加开始  -->
+    <meta name="renderer" content="webkit">
+    <!--<link rel="apple-touch-icon" href="/resources/img/binance_icon.png">-->
+    <!--添加结束-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta name="viewport"
+          content="user-scalable=no,width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <link href="../../../assets/css/loaders.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0
+        }
+
+        .main {
+            /*background: url("/resources/img/install-bg.png") no-repeat  top;*/
+            min-height: 100%
+        }
+
+        .main .picture {
+            /*background: url("/resources/img/picture001.png") no-repeat center;*/
+            width: 300px;
+            height: 292px;
+            margin: 0 auto;
+            padding: 100px 0 73px 0;
+            position: relative;
+        }
+
+        .ewm {
+            width: 70%;
+            position: absolute;
+            right: 30px;
+            bottom: 99px;
+            transition: all 0.6s;
+        }
+
+        .ewm:hover {
+            transform: scale(1.4);
+            border: 10px solid #fff;
+            border-radius: 20px;
+            box-shadow: 0px 0 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .main .teach {
+            width: 570px;
+            margin: 0 auto;
+            color: #cccccc;
+            font-size: 14px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(98, 108, 122, 0.5)
+        }
+
+        .main .teach p {
+            margin: 0;
+            line-height: 20px
+        }
+
+        .main .teach img {
+            margin-bottom: 28px
+        }
+
+        .main .iosinfo {
+            width: 570px;
+            margin: 0 auto;
+            color: #cccccc;
+            font-size: 14px;
+            padding-top: 48px
+
+        }
+
+        .main .iosinfo p {
+            text-align: center;
+            margin: 0;
+            line-height: 20px;
+        }
+
+        .main .how {
+            width: 570px;
+            margin: 0 auto;
+            color: #cccccc;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 40px
+        }
+
+        .main .how p {
+            margin-bottom: 0;
+            padding-bottom: 10px
+        }
+
+        a {
+            color: #f0b92c;
+            text-decoration: none;
+        }
+
+        .tips {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .tips img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 12rem;
+        }
+
+        /*.installDownLoad{background:url('/m-resources/img/ios-bg.jpg') no-repeat center top;background-size:cover;position:fixed;left:0;top:0;height:100%;width:100%;display: none}*/
+        .installDownLoad .iosinfo {
+            color: #ccc;
+            font-size: 0.65rem;
+            text-align: center;
+            margin: 75px auto 35px;
+            width: 50%;
+            padding-top: 36px;
+            border-top: 1px solid rgba(98, 108, 122, 0.5);
+        }
+
+        .installDownLoad .iosinfo p {
+            margin: 0
+        }
+
+        .installDownLoad .download-top {
+            position: relative;
+            z-index: 22;
+            margin: 36% auto 0 auto;
+            text-align: center;
+            color: #f5c12e;
+            font-size: 0.9rem;
+        }
+
+        .installDownLoad .download-top img {
+            max-width: 100%;
+        }
+
+        .installDownLoad .download-top ul, .installDownLoad .download-top ul li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .result {
+            display: none;
+            font-size: 0.6rem
+        }
+
+        .notWX {
+            height: 40px;
+            background-color: #32b2a7;
+            display: inline-block;
+            line-height: 40px;
+            border-radius: 40px;
+            width: 50%;
+            color: #fff;
+            font-size: 0.85rem;
+            text-decoration: none;
+            border: 1px solid #32b2a7
+        }
+
+        .isWX {
+            height: 40px;
+            display: inline-block;
+            background-color: #32b2a7;
+            border-radius: 40px;
+            line-height: 40px;
+            width: 50%;
+            color: #fff;
+            font-size: 0.85rem;
+            text-decoration: none;
+            border: 1px solid #32b2a7
+        }
+
+        .installDownLoad .download-top .download-logo {
+            margin: 0 auto;
+        }
+
+        .installDownLoad .download-top .download-logo img {
+            width: 113px
+        }
+
+        .installDownLoad .download-top ul li {
+            font-size: 0;
+            margin-bottom: 1rem;
+        }
+
+        .installDownLoad .download-phone-bg {
+        }
+
+        @media screen and (min-width: 320px) {
+            .installDownLoad .download-top p {
+                font-size: 14px;
+            }
+
+            .installDownLoad .iosinfo {
+                width: 70%;
+                color: #ccc;
+                font-size: 0.65rem;
+                text-align: center;
+                margin: 35px auto 35px;
+
+            }
+
+            .result {
+                display: none;
+                font-size: 12px !important
+            }
+
+            .main {
+                display: none
+            }
+
+            .installDownLoad {
+                display: inherit;
+            }
+
+            @media screen and (min-width: 360px) {
+                .installDownLoad .download-top p {
+                    font-size: 14px;
+                }
+
+                .installDownLoad .iosinfo {
+                    color: #ccc;
+                    font-size: 0.65rem;
+                    text-align: center;
+                    margin: 68px auto 35px;
+                }
+
+                .result {
+                    display: none;
+                    font-size: 12px !important
+                }
+
+            }
+            @media screen and (min-width: 375px) {
+                .installDownLoad .download-top p {
+                    font-size: 14px;
+                }
+
+                .installDownLoad .iosinfo {
+                    color: #ccc;
+                    font-size: 0.65rem;
+                    text-align: center;
+                    margin: 55px auto 35px
+                }
+
+                .result {
+                    display: none;
+                    font-size: 13px !important
+                }
+
+            }
+            @media screen and (min-width: 412px) {
+                .installDownLoad .download-top p {
+                    font-size: 16px;
+                }
+
+                .installDownLoad .iosinfo {
+                    color: #ccc;
+                    font-size: 0.65rem;
+                    text-align: center;
+                    margin: 60px auto 37px;
+                }
+
+                .result {
+                    display: none;
+                    font-size: 14px !important
+                }
+            }
+            @media screen and (min-width: 768px) {
+                .installDownLoad .download-top p {
+                    font-size: 30px;
+                }
+
+                .main {
+                    display: inherit;
+                }
+
+                .installDownLoad {
+                    display: none;
+                }
+            }
+
+
+    </style>
 </head>
 <body>
-<a title="iPhone"
-   href="itms-services://?action=download-manifest&url=https://dagx.io/download/ios/manifest.plist">下载</a>
+<div class="main">
+
+    <div class="picture">
+
+
+        <img id="ewm" class="ewm" alt="" src="../../assets/img/1530862300.svg">
+
+    </div>
+
+    <div class="teach">
+        <p style="font-size: 30px;
+    margin-bottom: 15px; color: #000;"><img alt="" src="../../assets/img/apple.png"
+                                            style="width: 40px;margin-bottom: 0;margin-right: 5px;">DAGX</p>
+        <p style="margin: 5px 0">扫描二维码下载</p>
+        <p>或用手机浏览器输入这个网址: https://dagx.io/download/ios/DAGX.html</p>
+    </div>
+
+    <div class="iosinfo">
+        <p>版本：2.3.0</p>
+        <p style="margin: 5px 0">更新于: 2018-07-06 13:00</span></p>
+    </div>
+
+
+</div>
+
+<div class="installDownLoad">
+    <div class="download-top">
+        <div class="download-logo"><img src="../../assets/img/ic_launcher.png"></div>
+        <div class="iosinfo">
+            <p>版本：2.3.0</p>
+            <p style="margin: 5px 0">更新于: 2018-07-06 13:00</span></p>
+            <p><a href="https://support.apple.com/zh-cn/ht204460">如何安装企业应用</a></p>
+        </div>
+
+        <a title="iPhone"
+           href="itms-services://?action=download-manifest&url=https://dagx.io/download/ios/manifest.plist"
+           class="notWX">下载</a>
+        <div id="loading" class="loader-inner ball-clip-rotate" style="display: none">
+            <div></div>
+        </div>
+        <p class="result">正在安装，请按 Home 键在桌面查看</p>
+
+    </div>
+    <div class="download-phone-bg"></div>
+    <!-- 提示 -->
+    <div class="tips" id="tips">
+        <img src="../../assets/img/tips.png"/>
+    </div>
+
+</div>
+
+<script src="../../assets/js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../assets/js/jsMobile.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    window.onload = function () {
+
+
+        function isWeiXin() {
+            var ua = window.navigator.userAgent.toLowerCase();
+            console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        $('#tips').click(function () {
+            $(this).fadeOut();
+        })
+
+        $(".notWX").click(function () {
+            if (isWeiXin()) {
+                $("#tips").show()
+                return false
+            } else {
+                $(this).hide()
+                $("#loading").show();
+                $('#loading').delay(10000).hide(0);
+                $('.result').delay(5200).show(0);
+            }
+        });
+
+
+    }
+
+
+</script>
 </body>
 </html>
