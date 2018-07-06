@@ -355,38 +355,32 @@
 <script src="../../assets/js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../../assets/js/jsMobile.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-    window.onload = function () {
 
-
-        function isWeiXin() {
-            var ua = window.navigator.userAgent.toLowerCase();
-            console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
-            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                return true;
-            } else {
-                return false;
-            }
+    function isWeiXin() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
         }
-
-        $('#tips').click(function () {
-            $(this).fadeOut();
-        })
-
-        $(".notWX").click(function () {
-            if (isWeiXin()) {
-                $("#tips").show()
-                return false
-            } else {
-                $(this).hide()
-                $("#loading").show();
-                $('#loading').delay(10000).hide(0);
-                $('.result').delay(5200).show(0);
-            }
-        });
-
-
     }
 
+    $('#tips').click(function () {
+        $(this).fadeOut();
+    })
+
+    $(".notWX").click(function () {
+        if (isWeiXin()) {
+            $("#tips").show()
+            return false
+        } else {
+            $(this).hide()
+            $("#loading").show();
+            $('#loading').delay(10000).hide(0);
+            $('.result').delay(5200).show(0);
+        }
+    });
 
 </script>
 </body>
