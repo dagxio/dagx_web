@@ -196,6 +196,9 @@ ul.navbar-nav {
 .inner-bg {
     padding: 280px 0;
 }
+.textcoin-bg {
+    padding:100px 0;
+}
 
 .top-content .text {
 	color: #fff;
@@ -550,3 +553,4 @@ footer {
 	margin-right: 0px;
 	margin-left: 0px;
 }
+
